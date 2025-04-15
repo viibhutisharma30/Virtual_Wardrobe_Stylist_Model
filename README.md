@@ -1,7 +1,108 @@
-Virtual Wardrobe Stylist is an AI-powered fashion recommendation system that helps users choose the best outfit combinations based on their body type and wardrobe preferences.<br> The system uses real-time body type detection through Mediapipe pose tracking, analyzing shoulder and hip landmarks to determine the best outfit fit.<br>
+👗 Virtual Wardrobe Stylist
+A smart AI-powered virtual stylist that recommends outfit combinations tailored to user preferences and body type using Machine Learning and Computer Vision.
 
-The recommendation engine is powered by the K-Nearest Neighbors (KNN) algorithm, trained on wardrobe data that includes item type, color, occasion, and season.<br> Users can upload images of their wardrobe items, and the system provides outfit suggestions based on compatibility and fashion trends.<br>
+🚀 Project Overview
+The Virtual Wardrobe Stylist is a personalized fashion recommendation system that helps users choose ideal outfit combinations (e.g., top + bottom) based on:
 
-The project is implemented using Python and integrates key technologies such as Mediapipe for pose detection, OpenCV for image processing, and Flask for building a user-friendly web interface.<br> 
+Item type (shirt, t-shirt, shorts, etc.)
 
-To use the Virtual Wardrobe Stylist, users need to upload images of their clothing items, allow the webcam to detect body landmarks, and receive AI-powered outfit recommendations.<br> This system enhances the fashion selection process, ensuring users always have the best outfit options available for any occasion.<br>
+Color
+
+Style (casual, formal, etc.)
+
+Occasion (daily, party, etc.)
+
+Season (summer, winter, etc.)
+
+Body type (automatically detected via webcam)
+
+🧠 Technologies Used
+Machine Learning: Random Forest Classifier (scikit-learn)
+
+Computer Vision: Mediapipe for body pose detection
+
+Data Processing: Pandas, LabelEncoder
+
+Model Serialization: Joblib
+
+Webcam Integration: OpenCV
+
+📂 Dataset
+The model is trained on a custom fashion dataset (wardrobe_training_large.csv) containing labeled features and target combinations suitable for various body types and occasions.
+
+🔍 Features
+💡 Predicts a matching top for a selected bottom or vice versa.
+
+🧍 Detects body type using pose landmarks and classifies (e.g., "athletic", "average").
+
+📸 Uses real-time webcam feed to extract pose features.
+
+✅ Achieves up to 93.55% training accuracy and 75.00% test accuracy for top model predictions.
+
+📌 How It Works
+Train models on labeled wardrobe data to recommend outfit combinations.
+
+Use OpenCV and Mediapipe to detect key body landmarks via webcam.
+
+Classify body type based on shoulder width.
+
+Pass inputs (item type, color, etc.) to the model.
+
+Display and recommend the best-matching fashion item.
+
+📈 Model Accuracy
+
+Model	Training Accuracy	Test Accuracy
+Top Model	93.55%	75.00%
+Bottom Model	89.47%	70.00%
+🔧 Setup Instructions
+Clone this repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/virtual-wardrobe-stylist.git
+cd virtual-wardrobe-stylist
+Install dependencies:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Run the model training script:
+
+bash
+Copy
+Edit
+python train_model.py
+Start real-time webcam-based prediction:
+
+bash
+Copy
+Edit
+python body_type_and_recommendation.py
+📦 File Structure
+bash
+Copy
+Edit
+├── train_model.py                 # Trains Random Forest models
+├── body_type_and_recommendation.py  # Real-time prediction using webcam
+├── wardrobe_training_large.csv   # Dataset
+├── top_model.pkl / bottom_model.pkl # Saved ML models
+├── le_*.pkl                      # Label encoders
+├── README.md                     # Project documentation
+📌 Future Enhancements
+Add GUI interface for easy user interaction.
+
+Extend dataset to include accessories, footwear, etc.
+
+Integrate with mobile or web platforms.
+
+Improve body type classification with more refined measurements.
+
+🙌 Acknowledgements
+Mediapipe
+
+scikit-learn
+
+OpenCV
